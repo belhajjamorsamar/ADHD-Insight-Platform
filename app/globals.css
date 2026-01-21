@@ -1,0 +1,147 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Primary Colors - Orange for primary actions */
+  --primary: #ff7f50;
+  --primary-foreground: #ffffff;
+
+  /* Secondary Colors - Baby Pink for secondary actions */
+  --secondary: #ffc0cb;
+  --secondary-foreground: #333333;
+
+  /* Neutral Colors - Dark Gray and White */
+  --accent: #333333;
+  --accent-foreground: #ffffff;
+
+  /* Background & Text */
+  --background: #ffffff;
+  --foreground: #333333;
+  --card: #fafafa;
+  --card-foreground: #333333;
+  --popover: #ffffff;
+  --popover-foreground: #333333;
+
+  /* UI Elements */
+  --muted: #f0f0f0;
+  --muted-foreground: #888888;
+  --border: #e5e5e5;
+  --input: #ffffff;
+  --ring: #ff7f50;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Chart Colors */
+  --chart-1: #ff7f50;
+  --chart-2: #ffc0cb;
+  --chart-3: #333333;
+  --chart-4: #ffb366;
+  --chart-5: #ffd9d0;
+
+  /* Spacing & Radius */
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar: #fafafa;
+  --sidebar-foreground: #333333;
+  --sidebar-primary: #ff7f50;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ffc0cb;
+  --sidebar-accent-foreground: #333333;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #ff7f50;
+}
+
+.dark {
+  --primary: #ff7f50;
+  --primary-foreground: #1a1a1a;
+  --secondary: #ff99b3;
+  --secondary-foreground: #1a1a1a;
+  --accent: #e5e5e5;
+  --accent-foreground: #1a1a1a;
+  --background: #0f0f0f;
+  --foreground: #e5e5e5;
+  --card: #1a1a1a;
+  --card-foreground: #e5e5e5;
+  --popover: #1a1a1a;
+  --popover-foreground: #e5e5e5;
+  --muted: #2a2a2a;
+  --muted-foreground: #999999;
+  --border: #333333;
+  --input: #2a2a2a;
+  --ring: #ff7f50;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #e5e5e5;
+  --sidebar-primary: #ff7f50;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #ff99b3;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #333333;
+  --sidebar-ring: #ff7f50;
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Restructured utilities with explicit transition definitions */
+@layer utilities {
+  /* Smooth transition utility */
+  .transition-smooth {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover lift animation - cards that lift on hover */
+  .hover-lift {
+    @apply hover:shadow-lg hover:-translate-y-1;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
